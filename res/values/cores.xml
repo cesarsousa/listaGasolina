@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<color name="fundo">#ffffff</color>
+	<color name="preto">#000000</color>
+	<color name="branco">#ffffff</color>
+	<color name="cinzaC">#cccccc</color>
+	<color name="cinzaD">#dddddd</color>
+	<color name="cinzaE">#eeeeee</color>
+	<color name="laranja">#ffa500</color>
+	<color name="transparente">#00000000</color>
+	<color name="verde">#228B22</color>
+	<color name="vermelho">#ff0000</color>
+	<color name="amarelo">#ffff00</color>
+	<color name="azul">#0000ff</color>
+</resources>

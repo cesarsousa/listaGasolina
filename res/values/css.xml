@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<!-- tema padrão -->
+	<style name="tema" parent="@android:style/Theme.Light">
+		<item name="android:windowNoTitle">true</item>
+	</style>
+	
+	<!-- texto com fonte 12 -->
+	<style name="texto12">
+		<item name="android:textColor">@color/preto</item>
+		<item name="android:textSize">12sp</item>
+	</style>
+	<style name="text12negrito" parent="texto12">
+		<item name="android:textStyle">bold</item>
+	</style>
+	
+	<!-- texto com fonte 14 -->
+	<style name="texto14">
+		<item name="android:textColor">@color/preto</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="texto14negrito" parent="texto14">
+		<item name="android:textStyle">bold</item>
+	</style>
+</resources>

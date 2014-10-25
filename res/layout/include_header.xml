@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutHeader"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="130dp"
+    android:background="@color/transparente">  
+    
+    <TableLayout
+    	android:orientation="horizontal"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:stretchColumns="0">
+    
+     	<TableRow>
+     	    <Button 
+		    	android:id="@+id/btMenuAdicionar"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_verde"
+		    	android:text="@string/adicionar"/>
+     	    
+     		<Button 
+		    	android:id="@+id/btMenuRemoverTodos"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_azul"
+		    	android:text="@string/removerTodos"/>
+     		
+     		<Button 
+		    	android:id="@+id/btMenuSair"
+		    	style="@style/buttonText"
+		    	android:background="@drawable/bt_vermelho"
+		    	android:text="@string/btSair"/> 
+    
+		    
+    	</TableRow>    
+    </TableLayout>       	
+</LinearLayout>
+    	

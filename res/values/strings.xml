@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">Gasolina</string>
+    <string name="copyright">Posto de Gasolina - Todos os direitos reservados</string>
+    <string name="titulo">O que você deseja fazer ?</string>
+    <string name="action_settings">Configurações</string>
+    
+    <!-- Mensagens -->
+    <string name="nome">Nome</string>
+    <string name="descricao">Descrição do produto</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="removerTodos">Remover Todos</string>
+    <string name="valor">valor</string>
+    <string name="btSair">Sair</string>
+    <string name="hintValor">Valor</string>
+    <string name="hintLitros">Litros</string>
+    <string name="hintKilometragem">Kilometragem</string>
+    
+    <string name="bt_add">adicionar produto</string>
+    <style name="buttonText">
+        <item name="android:layout_width">fill_parent</item>  
+	   <item name="android:layout_height">wrap_content</item>  
+	   <item name="android:textColor">#ffffff</item>  
+	   <item name="android:gravity">center</item>  
+	   <item name="android:textSize">17sp</item>  
+	   <item name="android:textStyle">bold</item>  
+	   <item name="android:shadowColor">#000000</item>  
+	   <item name="android:shadowDx">1</item>  
+	   <item name="android:shadowDy">1</item>  
+	   <item name="android:shadowRadius">2</item>
+    </style>
+    
+</resources>
