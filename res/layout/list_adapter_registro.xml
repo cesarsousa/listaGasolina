@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/gradiente"
+	android:gravity="top"
+	android:stretchColumns="1">
+
+    <TableRow >
+        
+        <TextView
+			android:id="@+id/listAdapterRegistroData"  
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:padding="5sp"				
+			android:textStyle="normal"
+			android:textColor="@color/preto"/>
+        
+	 	<TextView
+			android:id="@+id/listAdapterRegistroLitros"  
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:padding="5sp"				
+			android:textStyle="normal"
+			android:textColor="@color/preto"/>
+	 	
+	 	<TextView
+			android:id="@+id/listAdapterRegistroValor"  
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:padding="5sp"				
+			android:textStyle="normal"
+			android:textColor="@color/preto"/>
+	
+	   	<TextView
+			android:id="@+id/listAdapterRegistroKilometragem"  
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:padding="5sp"
+			android:textStyle="normal"
+			android:textColor="@color/preto"/>
+   
+  	</TableRow>	   
+</TableLayout>     

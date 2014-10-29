@@ -2,6 +2,7 @@ package br.com.listagasolina.modelo;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class RegistroRepositorioScript extends RegistroRepositorio {	
 
@@ -13,9 +14,9 @@ public class RegistroRepositorioScript extends RegistroRepositorio {
 		{
 		"create table registro ( " +
 				"_id integer primary key autoincrement, " +
-				"data date not null, " +
-				"litros numeric not null, " +
-				"valor numeric not null, " +
+				"data text not null, " +
+				"litros text not null, " +
+				"valor text not null, " +
 				"kilometragem text not null );"		
 		};
 	
@@ -23,7 +24,7 @@ public class RegistroRepositorioScript extends RegistroRepositorio {
 
 	public RegistroRepositorioScript(Context context) {
 		dbHelper = new SQLiteHelper(context, NOME_BANCO, VERSAO_BANCO, SCRIPT_DATABASE_CREATE, SCRIPT_DATABASE_DELETE);
-		db = dbHelper.getWritableDatabase();		
+		db = dbHelper.getWritableDatabase();
 	}	
 	
 	public static SQLiteDatabase getConexao(){

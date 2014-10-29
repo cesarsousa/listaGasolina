@@ -9,12 +9,12 @@ public class Registro implements Comparable<Registro>, BaseColumns{
 	
 	private long id;
 	private Date data;
-	private double litros;
-	private double valor;
-	private double kilometragem;
+	private int litros;
+	private int valor;
+	private int kilometragem;
 	
 	public static final String DATA = "data";
-	public static final String LITROS = "LITROS";
+	public static final String LITROS = "litros";
 	public static final String VALOR = "valor";
 	public static final String KILOMETRAGEM = "kilometragem";
 	public static String[] colunas = {
@@ -26,7 +26,7 @@ public class Registro implements Comparable<Registro>, BaseColumns{
 	
 	public Registro(){}
 	
-	public Registro(Date data, double litros, double valor, double kilometragem) {
+	public Registro(Date data, int litros, int valor, int kilometragem) {
 		super();
 		this.data = data;
 		this.litros = litros;
@@ -50,28 +50,38 @@ public class Registro implements Comparable<Registro>, BaseColumns{
 		this.data = data;
 	}
 
-	public double getLitros() {
+	public int getLitros() {
 		return litros;
 	}
 
-	public void setLitros(double litros) {
+	public void setLitros(int litros) {
 		this.litros = litros;
 	}
 
-	public double getValor() {
+	public int getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(int valor) {
 		this.valor = valor;
 	}
 
-	public double getKilometragem() {
+	public int getKilometragem() {
 		return kilometragem;
 	}
 
-	public void setKilometragem(double kilometragem) {
+	public void setKilometragem(int kilometragem) {
 		this.kilometragem = kilometragem;
+	}
+	
+	@Override
+	public String toString() {
+		return 
+				"ID " + getId() + " " + 
+				DataUtils.getDateToString(getData()) + " " +
+				getLitros() + "L" + " " + 
+				"R$ " + getValor() + " " +
+				"Km " + getKilometragem();
 	}
 
 	@Override
