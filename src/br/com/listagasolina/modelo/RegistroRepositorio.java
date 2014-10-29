@@ -63,6 +63,7 @@ public class RegistroRepositorio extends ListActivity{
 		values.put(Registro.KILOMETRAGEM, registro.getKilometragem());
 		
 		String _id = String.valueOf(registro.getId());
+		@SuppressWarnings("static-access")
 		String where = registro._ID + "=?";
 		String[] whereArgs = new String[]{_id};
 		

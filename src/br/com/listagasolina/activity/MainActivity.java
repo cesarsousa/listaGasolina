@@ -2,9 +2,9 @@ package br.com.listagasolina.activity;
 
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -49,6 +49,7 @@ public class MainActivity extends ListActivity {
 		
 		btMenuAdicionar.setOnClickListener(new OnClickListener() {
 			
+			@SuppressLint("InflateParams")
 			@Override
 			public void onClick(View v) {
 				LayoutInflater factory = LayoutInflater.from(MainActivity.this);
@@ -141,6 +142,7 @@ public class MainActivity extends ListActivity {
 		
 	}	
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
@@ -164,14 +166,15 @@ public class MainActivity extends ListActivity {
 			sb.append(registroAnterior.toString() + ".\n\n");
 			sb.append(registroSelecionado.toString() + ".\n\n");
 			sb.append("Total de " + DataUtils.diasEntre(registroAnterior.getData(), registroSelecionado.getData()) + " dias.\n");
-			sb.append("Média de Consumo: " + obterMediaDeConsumo(registroAnterior, registroSelecionado) + "Km/L");
+			sb.append("Km percorridos: " + String.valueOf(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem()) + " Km/L\n");
+			sb.append("Média de Consumo: " + obterMediaDeConsumo(registroAnterior, registroSelecionado) + " Km/L");
 		}
 		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
     	alertDialog.setTitle("Histórico");
     	alertDialog.setMessage(sb.toString());
-    	/*alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-    	   public void onClick(DialogInterface dialog, int which) {}});  */ 	
+    	alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+    	   public void onClick(DialogInterface dialog, int which) {}});   	
     	alertDialog.show();	
 	}
 
@@ -227,8 +230,10 @@ public class MainActivity extends ListActivity {
 			return String.valueOf(0);
 		}
 		
+		int litros = registroSelecionado.getLitros();
+		int kmPercorridos = registroSelecionado.getKilometragem() - registroAnterior.getKilometragem();
 		
-		return String.valueOf(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem());
+		return String.valueOf(kmPercorridos/litros);
 	}
 
 	@Override

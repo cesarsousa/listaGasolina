@@ -2,7 +2,6 @@ package br.com.listagasolina.modelo;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 public class RegistroRepositorioScript extends RegistroRepositorio {	
 
