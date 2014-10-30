@@ -9,6 +9,7 @@
     <string name="nome">Nome</string>
     <string name="descricao">Descrição do produto</string>
     <string name="adicionar">Adicionar</string>
+    <string name="confirmar">Confirmar</string>
     <string name="removerTodos">Remover Todos</string>
     <string name="valor">valor</string>
     <string name="btSair">Sair</string>
