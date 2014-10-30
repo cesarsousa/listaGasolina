@@ -16,6 +16,8 @@
     <string name="hintLitros">Litros</string>
     <string name="hintKilometragem">Kilometragem</string>
     
+    <string name="btAlterarData">alterar data</string>
+    
     <string name="bt_add">adicionar produto</string>
     <style name="buttonText">
         <item name="android:layout_width">fill_parent</item>  

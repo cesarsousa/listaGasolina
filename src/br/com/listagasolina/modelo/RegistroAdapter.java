@@ -2,9 +2,6 @@ package br.com.listagasolina.modelo;
 
 import java.util.List;
 
-import com.example.listagasolina.R;
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import br.com.listagasolina.activity.R;
 
 public class RegistroAdapter extends BaseAdapter implements ListAdapter {
 	

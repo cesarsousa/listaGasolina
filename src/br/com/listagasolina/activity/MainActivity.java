@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +22,6 @@ import br.com.listagasolina.modelo.Registro;
 import br.com.listagasolina.modelo.RegistroAdapter;
 import br.com.listagasolina.modelo.RegistroRepositorio;
 import br.com.listagasolina.modelo.RegistroRepositorioScript;
-
-import com.example.listagasolina.R;
 
 public class MainActivity extends ListActivity {
 	
@@ -166,15 +165,20 @@ public class MainActivity extends ListActivity {
 			sb.append(registroAnterior.toString() + ".\n\n");
 			sb.append(registroSelecionado.toString() + ".\n\n");
 			sb.append("Total de " + DataUtils.diasEntre(registroAnterior.getData(), registroSelecionado.getData()) + " dias.\n");
-			sb.append("Km percorridos: " + String.valueOf(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem()) + " Km/L\n");
+			sb.append("Km percorridos: " + String.valueOf(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem()) + " Km\n");
 			sb.append("Média de Consumo: " + obterMediaDeConsumo(registroAnterior, registroSelecionado) + " Km/L");
 		}
 		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
     	alertDialog.setTitle("Histórico");
     	alertDialog.setMessage(sb.toString());
-    	alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-    	   public void onClick(DialogInterface dialog, int which) {}});   	
+    	alertDialog.setButton("Atualizar", new DialogInterface.OnClickListener() {
+    	   public void onClick(DialogInterface dialog, int which) {
+    		   Intent intent = new Intent(MainActivity.this, AlterarRegistro.class);
+    		   intent.putExtra ("registro", registroSelecionado);
+    		   startActivity(intent);
+    	   }
+    	});   	
     	alertDialog.show();	
 	}
 

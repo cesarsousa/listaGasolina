@@ -1,12 +1,13 @@
 package br.com.listagasolina.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import android.provider.BaseColumns;
 
-public class Registro implements Comparable<Registro>, BaseColumns{
+public class Registro implements Comparable<Registro>, BaseColumns, Serializable{
 	
-	
+	private static final long serialVersionUID = -7506295754851813731L;
 	private long id;
 	private Date data;
 	private int litros;
