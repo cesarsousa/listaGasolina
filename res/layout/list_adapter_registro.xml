@@ -4,11 +4,13 @@
 	android:orientation="horizontal"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:background="@drawable/gradiente"
+	android:background="@color/branco"
 	android:gravity="top"
 	android:stretchColumns="1">
 
-    <TableRow >
+    <TableRow 
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp">
         
         <TextView
 			android:id="@+id/listAdapterRegistroData"  

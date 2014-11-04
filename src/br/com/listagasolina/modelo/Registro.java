@@ -78,8 +78,8 @@ public class Registro implements Comparable<Registro>, BaseColumns, Serializable
 	@Override
 	public String toString() {
 		return 
-				getId() + " " + 
-				DataUtils.getDateToString(getData()) + " " +
+				"ID " + getId() + " " + 
+				DataUtils.getDateToString(getData()) + "\n" +
 				getLitros() + "L" + " " + 
 				"R$ " + getValor() + " " +
 				"Km " + getKilometragem();
