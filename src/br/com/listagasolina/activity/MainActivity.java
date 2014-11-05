@@ -178,32 +178,38 @@ public class MainActivity extends ListActivity {
     		   intent.putExtra ("registro", registroSelecionado);
     		   startActivity(intent);
     	   }
-    	});   	
+    	});
+    	alertDialog.setButton2("OK", new DialogInterface.OnClickListener() {
+     	   public void onClick(DialogInterface dialog, int which) {
+     		   
+     	   }
+     	});
+    	
     	alertDialog.show();	
 	}
 
 	private String validarCampos(String strLitros, String strValor, String strKilometragem) {
 		StringBuilder retorno = new StringBuilder();						
-		if(strLitros.isEmpty()) retorno.append("\nCampo litros é obrigatório");
-		else if(strValor.isEmpty()) retorno.append("\nCampo valor é obrigatório");
-		else if(strKilometragem.isEmpty()) retorno.append("\nCampo kilometragem é obrigatório");					
+		if(strLitros.isEmpty()) retorno.append("Campo litros é obrigatório");
+		else if(strValor.isEmpty()) retorno.append("Campo valor é obrigatório");
+		else if(strKilometragem.isEmpty()) retorno.append("Campo kilometragem é obrigatório");					
 		else{
 			try {
 				Double.parseDouble(strLitros);
 			} catch (NumberFormatException e) {
-				retorno.append("\nCampo litros é inválido");
+				retorno.append("Campo litros é inválido");
 			}
 			
 			try {
 				Double.parseDouble(strValor);
 			} catch (NumberFormatException e) {
-				retorno.append("\nCampo valor é inválido");
+				retorno.append("Campo valor é inválido");
 			}
 			
 			try {
 				Double.parseDouble(strKilometragem);
 			} catch (NumberFormatException e) {
-				retorno.append("\nCampo kilometragem é inválido");
+				retorno.append("Campo kilometragem é inválido");
 			}						
 		}
 		return retorno.toString();
