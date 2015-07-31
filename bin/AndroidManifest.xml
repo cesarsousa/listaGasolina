@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlterarRegistro"/>
+        <activity android:name=".Estatisticas" android:theme="@android:style/Theme.Light"/>
     </application>
 
 </manifest>
