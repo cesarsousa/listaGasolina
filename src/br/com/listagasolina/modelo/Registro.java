@@ -84,6 +84,10 @@ public class Registro implements Comparable<Registro>, BaseColumns, Serializable
 				"R$ " + getValor() + "\n" +
 				"Km " + getKilometragem();
 	}
+	
+	public String getEstatistica() {
+		return DataUtils.getDateToString(getData()) + " " + getLitros() + "L R$ " + getValor() + " KM " + getKilometragem();
+	}
 
 	@Override
 	public int compareTo(Registro registro) {

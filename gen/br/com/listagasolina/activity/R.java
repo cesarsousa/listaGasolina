@@ -43,30 +43,32 @@ public final class R {
         public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f090010;
+        public static final int action_settings=0x7f090011;
         public static final int btConfirmaAlterarRegistro=0x7f090004;
-        public static final int btMenuAdicionar=0x7f090009;
-        public static final int btMenuRemoverTodos=0x7f09000a;
-        public static final int btMenuSair=0x7f09000b;
+        public static final int btMenuAdicionar=0x7f09000a;
+        public static final int btMenuRemoverTodos=0x7f09000b;
+        public static final int btMenuSair=0x7f09000c;
         public static final int btnAlterarData=0x7f090000;
         public static final int edtRegistroAlterarKilometragem=0x7f090003;
         public static final int edtRegistroAlterarLitros=0x7f090001;
         public static final int edtRegistroAlterarValor=0x7f090002;
-        public static final int kilometragem=0x7f090007;
-        public static final int layoutHeader=0x7f090008;
-        public static final int listAdapterRegistroData=0x7f09000c;
-        public static final int listAdapterRegistroKilometragem=0x7f09000f;
-        public static final int listAdapterRegistroLitros=0x7f09000d;
-        public static final int listAdapterRegistroValor=0x7f09000e;
-        public static final int litros=0x7f090005;
-        public static final int valor=0x7f090006;
+        public static final int kilometragem=0x7f090008;
+        public static final int layoutHeader=0x7f090009;
+        public static final int listAdapterRegistroData=0x7f09000d;
+        public static final int listAdapterRegistroKilometragem=0x7f090010;
+        public static final int listAdapterRegistroLitros=0x7f09000e;
+        public static final int listAdapterRegistroValor=0x7f09000f;
+        public static final int litros=0x7f090006;
+        public static final int txtEstatisticas=0x7f090005;
+        public static final int valor=0x7f090007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int alterar_registro=0x7f030001;
-        public static final int form_add_registro=0x7f030002;
-        public static final int include_header=0x7f030003;
-        public static final int list_adapter_registro=0x7f030004;
+        public static final int estatisticas=0x7f030002;
+        public static final int form_add_registro=0x7f030003;
+        public static final int include_header=0x7f030004;
+        public static final int list_adapter_registro=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;

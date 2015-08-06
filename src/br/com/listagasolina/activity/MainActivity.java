@@ -1,22 +1,20 @@
 package br.com.listagasolina.activity;
 
-
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Paint.FontMetrics;
 import android.os.Bundle;
-import android.transition.Visibility;
-import android.view.ActionProvider.VisibilityListener;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,7 +27,7 @@ import br.com.listagasolina.modelo.RegistroAdapter;
 import br.com.listagasolina.modelo.RegistroRepositorio;
 import br.com.listagasolina.modelo.RegistroRepositorioScript;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements Runnable{
 	
 	private AlertDialog alertDialog;
 	
@@ -40,25 +38,20 @@ public class MainActivity extends ListActivity {
 	private RegistroRepositorio repositorio;
 	private static List<Registro> registros;
 	
-	
-	private static final int ESTATISTICA = 0;
+	private static final int ESTATISTICA_GERAL = 0;
     private static final int REMOVER_TODOS = 1;
-    private static final int MENSAL = 3;
+    private static final int EXPORTAR = 2;
+    private static final int IMPORTAR = 4;
+    private static final int ARQUIVO_EXPORTAR = 6;
+    private static final int ARQUIVO_IMPORTAR = 7;
+    private static final int ESTATISTICA = 3;
     private static final int DELETAR = 5;
-	
-	 //definição das constantes utilizadas na criação do menu
-    /*private static final int ARQUIVO = 0;
-    private static final int EDITAR = 1;
-    private static final int FORMATAR = 2;
- 
-    private static final int ARQ_NOVO = 3;
-    private static final int ARQ_SALVAR = 4;
- 
-    private static final int EDITAR_RECORTAR = 5;
-    private static final int EDITAR_COPIAR = 6;
-     
-    private static final int FORMATAR_FONTE = 7;*/
-	
+    
+    private static boolean importarRegistros = false;
+    
+    
+    private ProgressDialog dialog;
+	private Handler handler = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -175,26 +168,7 @@ public class MainActivity extends ListActivity {
 		
 		final Registro registroSelecionado = (Registro) this.getListAdapter().getItem(position);
 		
-		/*Registro registroAnterior = null;*/
-		/*if(registroSelecionado.getId()-1 > 0){
-			try {
-				registroAnterior = repositorio.buscar(registroSelecionado.getId()-1);
-			} catch (ParseException e) {
-				mensagem("Erro na busca do registro anterior");
-			}
-		}*/	    	
-    	
 		StringBuilder sb = new StringBuilder();
-		/*if(registroAnterior == null){
-			sb.append("Registro anterior não encontrado");
-		}else{
-			sb.append(registroAnterior.toString() + ".\n\n");
-			sb.append(registroSelecionado.toString() + ".\n\n");
-			sb.append("Total de " + DataUtils.diasEntre(registroAnterior.getData(), registroSelecionado.getData()) + " dias.\n");
-			sb.append("Km percorridos: " + String.valueOf(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem()) + " Km\n");
-			sb.append("Média de Consumo: " + obterMediaDeConsumo(registroAnterior, registroSelecionado) + " Km/L");
-		}*/
-		
 		sb.append(registroSelecionado.toString() + ".\n\n");
 		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -224,44 +198,11 @@ public class MainActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		 try
 	        {
-	            //cria o menu
-			 	MenuItem menuEstatisticas = menu.add(ESTATISTICA, MENSAL, 0, "Estatísticas");
+			 	MenuItem menuEstatisticas = menu.add(ESTATISTICA_GERAL, ESTATISTICA, 0, "Estatísticas");
+			 	//MenuItem menuExportar = menu.add(ARQUIVO_EXPORTAR, EXPORTAR, 0, "Exportar");
+			 	//MenuItem menuImportar = menu.add(ARQUIVO_IMPORTAR, IMPORTAR, 0, "Importar");
 	            MenuItem menuRemover = menu.add(REMOVER_TODOS, DELETAR, 0, "Remover Todos");
-	                    
-	            
-	            /*//cria o menu e submenus
-	            SubMenu menuArquivo = menu.addSubMenu(ARQUIVO, 0, 0, "Arquivo");
-	            SubMenu menuEditar = menu.addSubMenu(EDITAR, 1, 0, "Editar");
-	            MenuItem menuFormatar = menu.add(FORMATAR, FORMATAR_FONTE, 0, "Formatar");        
-	             
-	            //define uma tecla de atalho para o menu, nesse caso a 
-	            //tecla de atalho é a letra "F"
-	            menuFormatar.setShortcut('0', 'F');
-	             
-	            //adiciona um ícone ao menu
-	            //menuFormatar.setIcon(R.drawable.icon);
-	            menuFormatar.setIcon(android.R.drawable.ic_menu_edit);
-	             
-	            //caso seja necessário desabilitar o menu Arquivo
-	            //abaixo segue exemplo
-	            //menu.findItem(ARQUIVO).setEnabled(false);
-	     
-	            menuArquivo.add(ARQUIVO, ARQ_NOVO, 0, "Novo");
-	            menuArquivo.add(ARQUIVO, ARQ_SALVAR, 1, "Salvar");
-	            menuArquivo.setIcon(android.R.drawable.ic_menu_more);
-	             
-	            //caso seja necessário desabilitar um subitem do menu Arquivo
-	            //abaixo segue exemplo
-	            //menuArquivo.findItem(ARQ_NOVO).setEnabled(false);
-	             
-	            menuEditar.add(EDITAR, EDITAR_RECORTAR, 0, "Recortar");
-	            menuEditar.add(EDITAR, EDITAR_COPIAR, 1, "Copiar");
-	     
-	            //caso seja necessário desabilitar um subitem do menu Editar
-	            //abaixo segue exemplo
-	            //menuEditar.findItem(EDITAR_COPIAR).setEnabled(false);
-*/	        }
-	        catch (Exception e) {
+	        }catch (Exception e) {
 	            mensagem("Erro : " + e.getMessage());
 	        }  
 		return super.onCreateOptionsMenu(menu);
@@ -269,15 +210,20 @@ public class MainActivity extends ListActivity {
 	
 	 @Override
 	    public boolean onOptionsItemSelected(MenuItem item) {
-	        //de acordo com o item selecionado você executará
-	        //a função desejada
+	       
 	        switch (item.getItemId()) {
 	        
-	        case MENSAL:    
-                
-                Intent intent = new Intent(MainActivity.this, Estatisticas.class);
-                startActivity(intent);           
-                
+	        case ESTATISTICA:
+                ArrayList<Registro> registros;
+				try {
+					registros = (ArrayList<Registro>) repositorio.listarTodos();
+					Intent intent = new Intent(MainActivity.this, Estatisticas.class);
+	                intent.putExtra("registros", registros);
+	                startActivity(intent);  
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+					mensagem("Não foi possível obter listagem de registro :(");
+				}               
                 break;          
             case DELETAR: 
             	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -307,23 +253,21 @@ public class MainActivity extends ListActivity {
 				AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 				builder.setMessage("Remover todos os registros?").setPositiveButton("Sim", dialogClickListener).setNegativeButton("Não", dialogClickListener).show();
 			
-                break;           
-	        
-	            /*case ARQ_NOVO:     
-	                mensagem("Você selecionou o menu Novo");
-	                break;
-	            case ARQ_SALVAR:     
-	            	mensagem("Você selecionou o menu Salvar");
-	                break;
-	            case EDITAR_COPIAR: 
-	            	mensagem("Você selecionou o menu Copiar");
-	                break;
-	            case EDITAR_RECORTAR: 
-	            	mensagem("Você selecionou o menu Recortar");
-	                break;
-	            case FORMATAR_FONTE: 
-	            	mensagem("Você selecionou o menu Formatar");
-	                break;*/
+                break;
+                
+            case IMPORTAR:
+            	importarRegistros = true;
+            	dialog = ProgressDialog.show(MainActivity.this, "importando registros, por favor aguarde...", null, false, true);
+				new Thread(MainActivity.this).start();
+            	
+            	break;
+            	
+            case EXPORTAR:
+            	importarRegistros = false;
+            	dialog = ProgressDialog.show(MainActivity.this, "Exportando registros, por favor aguarde...", null, false, true);
+				new Thread(MainActivity.this).start();
+            	
+            	break;
 	        }
 	        return true;
 	    }   
@@ -374,21 +318,19 @@ public class MainActivity extends ListActivity {
 	private void mensagem(String mensagem) {
 		Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_SHORT).show();
 	}
-	
-	private String obterMediaDeConsumo(Registro registroAnterior, Registro registroSelecionado) {
-		if(registroSelecionado.getKilometragem() - registroAnterior.getKilometragem() < 0){
-			return String.valueOf(0);
-		}
-		
-		int litros = registroSelecionado.getLitros();
-		int kmPercorridos = registroSelecionado.getKilometragem() - registroAnterior.getKilometragem();
-		
-		return String.valueOf(kmPercorridos/litros);
-	}
 
 	@Override
     protected void onPause() {
     	repositorio.fecharConexao();
     	super.onPause();
     }
+
+	@Override
+	public void run() {
+		if(importarRegistros){
+			
+		}else{
+			
+		}		
+	}
 }
