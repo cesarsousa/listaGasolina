@@ -199,8 +199,8 @@ public class MainActivity extends ListActivity implements Runnable{
 		 try
 	        {
 			 	MenuItem menuEstatisticas = menu.add(ESTATISTICA_GERAL, ESTATISTICA, 0, "Estatísticas");
-			 	//MenuItem menuExportar = menu.add(ARQUIVO_EXPORTAR, EXPORTAR, 0, "Exportar");
-			 	//MenuItem menuImportar = menu.add(ARQUIVO_IMPORTAR, IMPORTAR, 0, "Importar");
+			 	MenuItem menuExportar = menu.add(ARQUIVO_EXPORTAR, EXPORTAR, 0, "Exportar");
+			 	MenuItem menuImportar = menu.add(ARQUIVO_IMPORTAR, IMPORTAR, 0, "Importar");
 	            MenuItem menuRemover = menu.add(REMOVER_TODOS, DELETAR, 0, "Remover Todos");
 	        }catch (Exception e) {
 	            mensagem("Erro : " + e.getMessage());
@@ -259,7 +259,9 @@ public class MainActivity extends ListActivity implements Runnable{
             	importarRegistros = true;
             	dialog = ProgressDialog.show(MainActivity.this, "importando registros, por favor aguarde...", null, false, true);
 				new Thread(MainActivity.this).start();
-            	
+				
+				
+				
             	break;
             	
             case EXPORTAR:
@@ -267,6 +269,17 @@ public class MainActivity extends ListActivity implements Runnable{
             	dialog = ProgressDialog.show(MainActivity.this, "Exportando registros, por favor aguarde...", null, false, true);
 				new Thread(MainActivity.this).start();
             	
+				try {
+					registros = (ArrayList<Registro>) repositorio.listarTodos();
+					Intent intent = new Intent(MainActivity.this, ExportarRegistros.class);
+	                intent.putExtra("registros", registros);
+	                startActivity(intent);  
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+					mensagem("Não foi possível obter listagem de registro :(");
+				}   
+				
+				
             	break;
 	        }
 	        return true;

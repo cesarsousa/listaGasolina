@@ -20,7 +20,8 @@ public class Estatisticas extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.estatisticas);
-		textoEstatisticas = (TextView) findViewById(R.id.txtEstatisticas);
+		
+		textoEstatisticas = (TextView) findViewById(R.id.txtEstatisticas);		
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("Estatísticas Gerais\n");
@@ -48,7 +49,7 @@ public class Estatisticas extends Activity {
 			
 			Calendar dataReferencia = Calendar.getInstance();
 			dataReferencia.setTime(listaMensal.get(0).getData());
-			sb.append("\n\nReferência " + (dataReferencia.get(Calendar.MONTH)+1) + "/" + dataReferencia.get(Calendar.YEAR) + "\n\n");			
+			sb.append("\n\nREFERÊNCIA " + (dataReferencia.get(Calendar.MONTH)+1) + "/" + dataReferencia.get(Calendar.YEAR) + "\n\n");			
 			
 			int kmInicial = listaMensal.get(0).getKilometragem();
 			int kmFinal = listaMensal.get(listaMensal.size()-1).getKilometragem();
@@ -57,7 +58,7 @@ public class Estatisticas extends Activity {
 				sb.append(r.getEstatistica() + "\n");
 			}
 			
-			sb.append("\n" + listaMensal.size() + " REGISTRO\n");
+			sb.append("\n" + listaMensal.size() + " Registro\n");
 			sb.append("\n");
 			sb.append("Total de abastecimento: " + totalGasolinaDoMes + " L\n");
 			sb.append("Gasto mensal: R$ " + totalValorDoMes + "\n");
@@ -65,7 +66,6 @@ public class Estatisticas extends Activity {
 			//sb.append("Média por litro: " + ((kmFinal - kmInicial)/totalGasolinaDoMes) + "\n");
 			sb.append(".........................................");
 		}
-			
 
 		textoEstatisticas.setText(sb.toString());
 	}

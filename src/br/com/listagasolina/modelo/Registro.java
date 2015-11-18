@@ -94,4 +94,8 @@ public class Registro implements Comparable<Registro>, BaseColumns, Serializable
 		return (this.data).compareTo(registro.getData());
 	}
 
+	public String getRegistroParaEsportacao() {
+		return DataUtils.getDateToString(getData())+"?"+litros+"?"+valor+"?"+kilometragem;
+	}
+
 }
