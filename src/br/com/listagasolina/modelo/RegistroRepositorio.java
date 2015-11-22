@@ -92,7 +92,7 @@ public class RegistroRepositorio extends ListActivity{
 			do{
 				Registro registro = new Registro();
 				registro.setId(cursor.getLong(_id));
-				registro.setData(DataUtils.getStringToDate(cursor.getString(data)));
+				registro.setData(DataUtils.getStringToFullDate(cursor.getString(data)));
 				registro.setLitros(cursor.getInt(litros));
 				registro.setValor(cursor.getInt(valor));
 				registro.setKilometragem(cursor.getInt(kilometragem));
@@ -109,7 +109,7 @@ public class RegistroRepositorio extends ListActivity{
 			cursor.moveToFirst();
 			registro = new Registro();
 			registro.setId(cursor.getLong(0));
-			registro.setData(DataUtils.getStringToDate(cursor.getString(1)));
+			registro.setData(DataUtils.getStringToFullDate(cursor.getString(1)));
 			registro.setLitros(cursor.getInt(2));
 			registro.setValor(cursor.getInt(3));
 			registro.setKilometragem(cursor.getInt(4));

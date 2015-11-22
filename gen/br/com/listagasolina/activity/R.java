@@ -498,14 +498,15 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020029;
     }
     public static final class id {
-        public static final int action_settings=0x7f07002c;
+        public static final int action_settings=0x7f07002e;
         public static final int adjust_height=0x7f070003;
         public static final int adjust_width=0x7f070002;
         public static final int book_now=0x7f070014;
         public static final int btConfirmaAlterarRegistro=0x7f07001e;
-        public static final int btMenuAdicionar=0x7f070025;
-        public static final int btMenuRemoverTodos=0x7f070026;
-        public static final int btMenuSair=0x7f070027;
+        public static final int btImportarRegistros=0x7f070025;
+        public static final int btMenuAdicionar=0x7f070027;
+        public static final int btMenuRemoverTodos=0x7f070028;
+        public static final int btMenuSair=0x7f070029;
         public static final int btnAlterarData=0x7f07001a;
         public static final int buyButton=0x7f07000e;
         public static final int buy_now=0x7f070013;
@@ -513,6 +514,7 @@ containing a value of this type.
         public static final int cast_notification_id=0x7f070000;
         public static final int classic=0x7f070016;
         public static final int donate_with_google=0x7f070015;
+        public static final int edtImportarRegistros=0x7f070024;
         public static final int edtRegistroAlterarKilometragem=0x7f07001d;
         public static final int edtRegistroAlterarLitros=0x7f07001b;
         public static final int edtRegistroAlterarValor=0x7f07001c;
@@ -521,11 +523,11 @@ containing a value of this type.
         public static final int holo_light=0x7f070009;
         public static final int hybrid=0x7f070007;
         public static final int kilometragem=0x7f070023;
-        public static final int layoutHeader=0x7f070024;
-        public static final int listAdapterRegistroData=0x7f070028;
-        public static final int listAdapterRegistroKilometragem=0x7f07002b;
-        public static final int listAdapterRegistroLitros=0x7f070029;
-        public static final int listAdapterRegistroValor=0x7f07002a;
+        public static final int layoutHeader=0x7f070026;
+        public static final int listAdapterRegistroData=0x7f07002a;
+        public static final int listAdapterRegistroKilometragem=0x7f07002d;
+        public static final int listAdapterRegistroLitros=0x7f07002b;
+        public static final int listAdapterRegistroValor=0x7f07002c;
         public static final int litros=0x7f070021;
         public static final int match_parent=0x7f070010;
         public static final int monochrome=0x7f070018;
@@ -553,8 +555,9 @@ containing a value of this type.
         public static final int estatisticas=0x7f030002;
         public static final int exportar_registros=0x7f030003;
         public static final int form_add_registro=0x7f030004;
-        public static final int include_header=0x7f030005;
-        public static final int list_adapter_registro=0x7f030006;
+        public static final int importar_registros=0x7f030005;
+        public static final int include_header=0x7f030006;
+        public static final int list_adapter_registro=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -573,9 +576,9 @@ containing a value of this type.
         /**  Brand name for Google [DO NOT TRANSLATE] 
          */
         public static final int auth_google_play_services_client_google_display_name=0x7f060006;
-        public static final int btAlterarData=0x7f06003a;
+        public static final int btAlterarData=0x7f06003b;
         public static final int btSair=0x7f060036;
-        public static final int bt_add=0x7f06003b;
+        public static final int bt_add=0x7f06003c;
         /**  Message of the notification to indicate an active cast display connection.  [CHAR LIMIT=80] NOTE: Same text as msgid="794424023757290105" 
          */
         public static final int cast_notification_connected_message=0x7f060009;
@@ -703,6 +706,7 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
         public static final int descricao=0x7f060031;
+        public static final int hintImportarRegistros=0x7f06003a;
         public static final int hintKilometragem=0x7f060039;
         public static final int hintLitros=0x7f060038;
         public static final int hintValor=0x7f060037;

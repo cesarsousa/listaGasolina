@@ -16,6 +16,8 @@
     <string name="hintValor">Valor</string>
     <string name="hintLitros">Litros</string>
     <string name="hintKilometragem">Kilometragem</string>
+    <string name="hintImportarRegistros">Entre com os registros</string>
+    
     
     <string name="btAlterarData">alterar data</string>
     

@@ -51,26 +51,9 @@ public class ExportarRegistros extends Activity{
 	}
 	
 	public void onBackPressed() {
-	    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ExportarRegistros.this);
-	    alertDialogBuilder.setTitle("Atenção");
-	 
-	    alertDialogBuilder.setMessage("Voltar a tela inicial?").setCancelable(false).setPositiveButton("Sim",
-	        new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int id) {
-	            	Intent intent = new Intent(ExportarRegistros.this, MainActivity.class);
-	        		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	        		startActivity(intent);
-	            }
-	        })
-	        .setNegativeButton("Não",
-	        new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int id) {
-	                dialog.cancel();
-	            }
-	        });
-	 
-	    AlertDialog alertDialog = alertDialogBuilder.create();
-	    alertDialog.show();
+		Intent intent = new Intent(ExportarRegistros.this, MainActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(intent);
 	}
 
 }

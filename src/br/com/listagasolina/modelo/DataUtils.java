@@ -35,9 +35,21 @@ public class DataUtils {
 	 * @return Um objeto do tipo <code>Date</code>
 	 * @throws ParseException Caso a String data não esteja no formato 'dd/MM/yyyy HH:mm:ss'.
 	 */
-	public static Date getStringToDate(String data) throws ParseException {
+	public static Date getStringToFullDate(String data) throws ParseException {
 		return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(data);
 	}
+	
+	/**
+	 * 
+	 * @param data Representacao de uma data no formato dd/MM/yyyy
+	 * @return Um objeto do tipo <code>Date</code>
+	 * @throws ParseException Caso a String data não esteja no formato 'dd/MM/yyyy'.
+	 */
+	public static Date getStringToDate(String data) throws ParseException {
+		return new SimpleDateFormat("dd/MM/yyyy").parse(data);
+	}
+	
+	
 	
 	/**
 	 * Retorna o número de dias decorridos de duas datas.

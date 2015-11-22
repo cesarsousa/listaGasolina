@@ -257,11 +257,7 @@ public class MainActivity extends ListActivity implements Runnable{
                 
             case IMPORTAR:
             	importarRegistros = true;
-            	dialog = ProgressDialog.show(MainActivity.this, "importando registros, por favor aguarde...", null, false, true);
-				new Thread(MainActivity.this).start();
-				
-				
-				
+            	startActivity(new Intent(MainActivity.this, ImportarRegistros.class));				
             	break;
             	
             case EXPORTAR:
@@ -270,6 +266,7 @@ public class MainActivity extends ListActivity implements Runnable{
 				new Thread(MainActivity.this).start();
             	
 				try {
+					verificarConexao();
 					registros = (ArrayList<Registro>) repositorio.listarTodos();
 					Intent intent = new Intent(MainActivity.this, ExportarRegistros.class);
 	                intent.putExtra("registros", registros);

@@ -29,6 +29,8 @@
         <activity android:name=".AlterarRegistro"/>
         <activity android:name=".Estatisticas" android:theme="@android:style/Theme.Light"/>
         <activity android:name=".ExportarRegistros" android:theme="@android:style/Theme.Light"/>
+        <activity android:name=".ImportarRegistros" android:theme="@android:style/Theme.Light"/>
+        
     </application>
 
 </manifest>
